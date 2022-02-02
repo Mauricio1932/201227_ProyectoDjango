@@ -57,7 +57,8 @@ INSTALLED_APPS = [
     #componentes creados
     'primerComponente',
     'Login',
-
+    'register',
+    
     #librerias Agregadas
     'rest_framework',
     'rest_framework.authtoken',
