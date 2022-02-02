@@ -90,11 +90,4 @@ class PrimerViewDetail(APIView):
       #       return Response (serializer.errors,status=status.HTTP_400_BAD_REQUEST)
       # else:
       #     return Response ("Id no encontrado",status=status.HTTP_400_BAD_REQUEST)
-
-
-   def response_custom(self,request,status):
-      if status != 404:
-         ...
-      else:
-         ...
       
