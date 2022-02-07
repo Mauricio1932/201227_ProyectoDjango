@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+from email.mime import base
 import environ
 import os
 
@@ -58,7 +59,7 @@ INSTALLED_APPS = [
     'primerComponente',
     'Login',
     'register',
-    
+    'loadImage',
     #librerias Agregadas
     'rest_framework',
     'rest_framework.authtoken',
@@ -159,6 +160,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/assets/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'assets')
 
 # try:
 #     from primerApp.local_settings import *
