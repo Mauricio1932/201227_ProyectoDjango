@@ -1,4 +1,3 @@
-
 from multiprocessing import context
 from tkinter.messagebox import NO
 
@@ -89,13 +88,3 @@ class PrimerViewDetail(APIView):
       #       return Response (serializer.errors,status=status.HTTP_400_BAD_REQUEST)
       # else:
       #     return Response ("Id no encontrado",status=status.HTTP_400_BAD_REQUEST)
-
-      # respuesta = self.response_custom(idResponse,data=request.data,context={'request':request})
-
-
-   
-   # def response_custom(self,status):
-   #    if status != 404:
-   #       ...
-   #    else:
-   #       ...
