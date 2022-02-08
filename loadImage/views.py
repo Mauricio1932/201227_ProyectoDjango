@@ -72,17 +72,13 @@ class loadImageDetail(APIView):
     def put(self,request, pk, format=None):
         idResponse = self.get_object(pk)
 
-       
-
-        serializer = serializerLoadImage(data=request.data, context ={'request':request })
-
         if idResponse != 404:
             archivo = request.data['url_img']
             parseo = str(archivo)
             split = parseo.split('.')
-
             request.data['name_img'] = split[0]
             request.data['formato'] = split[1]
+            serializer = serializerLoadImage(idResponse,data=request.data, context ={'request':request })
             if serializer.is_valid():
                 serializer.save()
                 return ResponseCustom.response_custom(serializer.data,responseOk,status=status.HTTP_200_OK)
@@ -91,7 +87,11 @@ class loadImageDetail(APIView):
         else:
             return ResponseCustom.response_custom("Dato no encontrado",responseBad, status=status.HTTP_400_BAD_REQUEST) 
 
+
+  
+
 class ResponseCustom():
+
     def response_custom(response, message, status):
         response = ({
             "message": message,
