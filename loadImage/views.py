@@ -33,6 +33,12 @@ class viewloadImage(APIView):
         request.data['name_img'] = split[0]
         request.data['formato'] = split[1]
 
+        
+        # format_split = str(request.data['url_img']).split('.')
+        # request.data['name_img'] = format_split[0]
+        # request.data['format_img'] = format_split[1]
+
+
         serializer = serializerLoadImage(data=request.data, context ={'request':request })
 
         if serializer.is_valid():
@@ -67,7 +73,7 @@ class loadImageDetail(APIView):
             idResponse.delete()
             return Response (responseOk,status= status.HTTP_204_NO_CONTENT)
         else:
-             return ResponseCustom.response_custom("Dato no encontrado",responseBad, status=status.HTTP_400_BAD_REQUEST)  
+            return ResponseCustom.response_custom("Dato no encontrado",responseBad, status=status.HTTP_400_BAD_REQUEST)  
 
     def put(self,request, pk, format=None):
         idResponse = self.get_object(pk)
@@ -85,7 +91,8 @@ class loadImageDetail(APIView):
             else: 
                 return ResponseCustom.response_custom (serializer.errors,responseBad,status=status.HTTP_400_BAD_REQUEST)
         else:
-            return ResponseCustom.response_custom("Dato no encontrado",responseBad, status=status.HTTP_400_BAD_REQUEST) 
+            #return ResponseCustom.response_custom("Dato no encontrado",responseBad, status=status.HTTP_400_BAD_REQUEST) 
+            viewloadImage.post(self, request, format=None)
 
 
   

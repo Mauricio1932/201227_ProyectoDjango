@@ -3,6 +3,15 @@ from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 
 
+#
+
+from rest_framework.permissions import AllowAny
+from .serializers import MyTokenObtainPairSerializer
+from rest_framework_simplejwt.views import TokenObtainPairView
+#
+
+
+
 class LoginAuth (ObtainAuthToken):
     def post (self, request, *args, **kwargs):
         
@@ -14,5 +23,12 @@ class LoginAuth (ObtainAuthToken):
         return Response({
             'token':token.key,
             'user_id':user.pk,
-            'email':user.email
-        }) 
+            'email':user.email,
+        })
+
+
+    
+class MyObtainTokenPairView(TokenObtainPairView):
+    permission_classes = (AllowAny,)
+    serializer_class = MyTokenObtainPairSerializer
+

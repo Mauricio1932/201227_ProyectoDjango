@@ -89,11 +89,3 @@ class ResponseCustom():
 
       return Response(response)
 
-      #    serializer=PrimerTablaSerializer(idResponse, data=request.data ,context={'request':request})
-      #    if serializer.is_valid():
-      #       idResponse.delete()
-      #       return Response (serializer.data, status=status.HTTP_200_OK)
-      #    else: 
-      #       return Response (serializer.errors,status=status.HTTP_400_BAD_REQUEST)
-      # else:
-      #     return Response ("Id no encontrado",status=status.HTTP_400_BAD_REQUEST)
